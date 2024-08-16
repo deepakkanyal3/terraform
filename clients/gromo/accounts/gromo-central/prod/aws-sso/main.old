@@ -1,0 +1,13 @@
+module "aws-sso" {
+  account     = var.account
+  source      = "../../../../../../modules/aws-sso"
+  domain_name = var.domain_name
+  vpc_id      = data.aws_vpc.current_vpc.id
+  environment = var.environment
+  key_name    = var.key_name
+  ami         = var.ami
+  instance_type = var.instance_type
+  subnet_ids  = [
+    data.aws_subnet.private_subnet_a.id, data.aws_subnet.private_subnet_b.id
+  ]
+}

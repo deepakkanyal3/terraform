@@ -1,0 +1,2 @@
+# nodeSelector:
+#   node_type: "infra"

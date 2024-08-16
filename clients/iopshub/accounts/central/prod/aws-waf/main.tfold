@@ -1,0 +1,25 @@
+module "waf" {
+  source      = "../../../../../../modules/aws-waf"
+  name        = "iopshub-web-acl"
+  tags        = local.common_tags
+  environment = var.environment
+  account     = var.account
+
+
+  rate_limit = var.rate_limit
+  blacklisted_ip_set = var.blacklisted_ip_set
+  office_ip_set = var.office_ip_set
+  aws_ip_set = var.aws_ip_set
+  external_vendor_ip_set = var.external_vendor_ip_set
+  data_center_ip_set = var.data_center_ip_set
+  other_whitelisted_ip_set = var.other_whitelisted_ip_set
+  whitelist_rule_group_name      = var.whitelist_rule_group_name
+  whitelist_rule_group_capacity  = var.whitelist_rule_group_capacity
+  blacklist_rule_group_name      = var.blacklist_rule_group_name
+  blacklist_rule_group_capacity      = var.blacklist_rule_group_capacity
+  allow_geo_location  = var.allow_geo_location
+  allow_geo_location_rule_group_capacity = var.allow_geo_location_rule_group_capacity
+  block_geo_location = var.block_geo_location
+  block_geo_location_rule_group_capacity = var.block_geo_location_rule_group_capacity
+
+}

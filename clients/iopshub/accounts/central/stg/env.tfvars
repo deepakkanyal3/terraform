@@ -1,0 +1,12 @@
+AWS_REGION = "ap-south-1"
+credentials_profile_name = "default"
+account = "iopshub"
+environment = "stg"
+vpc_cidr = "10.60.0.0/16"
+azs = ["ap-south-1a", "ap-south-1b", "ap-south-1c"]
+#cluster_version = 1.28
+#central_account_cidr = "10.50.0.0/16"
+pem_key = "iopshub-central"
+hosted_zone = "iopshub.com"
+private_hosted_zone_enabled = false
+route_53_credential_profile = "default"

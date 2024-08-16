@@ -1,0 +1,12 @@
+AWS_REGION = "ap-south-1"
+credentials_profile_name = "gromo-insure-prod"
+account = "gromo-insure"
+environment = "dev"
+vpc_cidr = "10.130.0.0/16"
+azs = ["ap-south-1a", "ap-south-1b", "ap-south-1c"]
+#cluster_version = 1.25
+central_account_cidr = "10.200.0.0/16"
+pem_key = "gromo-insure"
+hosted_zone = "gromoinsure.co.in"
+#private_hosted_zone_enabled = false
+# route_53_credential_profile = "gromo-app-backend"

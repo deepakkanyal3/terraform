@@ -1,0 +1,51 @@
+locals {
+  user_data = <<-EOT
+  #!/bin/bash
+  sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list << EOF
+  deb https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse
+  EOF
+
+  sudo tee /etc/apt/sources.list.d/pritunl.list << EOF
+  deb https://repo.pritunl.com/stable/apt jammy main
+  EOF
+
+  sudo apt --assume-yes install gnupg
+  wget -qO- https://www.mongodb.org/static/pgp/server-6.0.asc | sudo tee /etc/apt/trusted.gpg.d/mongodb-org-6.0.asc
+  gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+  gpg --armor --export 7568D9BB55FF9E5287D586017AE645C0CF8E292A | sudo tee /etc/apt/trusted.gpg.d/pritunl.asc
+  sudo apt update
+  sudo apt --assume-yes install pritunl mongodb-org
+  sudo systemctl start pritunl mongod
+  sudo systemctl enable pritunl mongod
+
+EOT
+}
+#tfsec:ignore:aws-ec2-enforce-http-token-imds
+module "server-01" {
+  source                 = "../../../../../../modules/ec2"
+  name                   = "${var.appname}-01"
+  ami                    = var.ubuntu_linux_ami
+  instance_type          = "t3a.small"
+  key_name               = var.pem_key
+  account = var.account 
+  vpc_security_group_ids = [module.sg.sg-id]
+  subnet_id              = data.aws_subnet.public_subnet_a.id
+  root_block_device = [
+    {
+      encrypted   = true
+      volume_type = "gp3"
+      throughput  = 200
+      volume_size = 20
+    }
+  ]
+  tags = local.common_tags
+  environment = var.environment
+  user_data = local.user_data
+}
+
+
+resource "aws_eip" "ip-01" {
+  vpc = true
+  instance                  = module.server-01.id
+  depends_on                = [module.server-01]
+}

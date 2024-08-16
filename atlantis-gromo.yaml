@@ -1,0 +1,169 @@
+version: 3
+projects:
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/prod/common
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/prod/eks
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/prod/eks-addons
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/prod/loki
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/prod/fluent-bit
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/stg/common
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/stg/eks
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/stg/eks-addons
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/stg/loki
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/stg/velero
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-app-and-backend/stg/tempo
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-central/prod/aws-sso
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-central/prod/aws-ses
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-central/prod/common
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-central/prod/eks
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-central/prod/eks-addons
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-central/prod/loki
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-central/prod/nexus
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-central/prod/nexus-repo
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-central/prod/vpn
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-central/prod/ec2
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/dev/common
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/alb
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/cdn
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/common
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/ec2
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/eks
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/eks-addons
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/loki
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/nlb
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/rds
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/redis
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/route53_co.in
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/prod/s3
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/stg/alb
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/stg/cdn
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/stg/common
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/stg/ec2
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/stg/nlb
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/stg/route53_co.in
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/stg/s3
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/stg/sqs
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/dev/ec2
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/dev/sqs
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/dev/cdn
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/gromo-insure/dev/alb
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/insurance/dev/common
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/insurance/dev/eks
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/insurance/dev/eks-addons
+    workflow: gromo-custom-workflow
+
+  - dir: ./clients/gromo/accounts/insurance/dev/loki
+    workflow: gromo-custom-workflow
+  - dir: ./clients/gromo/accounts/insurance/stg/common
+    workflow: gromo-custom-workflow
+  - dir: ./clients/gromo/accounts/insurance/stg/eks
+    workflow: gromo-custom-workflow
+  - dir: ./clients/gromo/accounts/insurance/stg/eks-addons
+    workflow: gromo-custom-workflow
+  - dir: ./clients/gromo/accounts/insurance/stg/loki
+    workflow: gromo-custom-workflow
+  - dir: ./clients/gromo/accounts/gromo-cloudkeeper/prod/organization-unit
+    workflow: gromo-custom-workflow
+workflows:
+  gromo-custom-workflow:
+    plan:
+      steps:
+        - init
+        - plan:
+            extra_args: ["-var-file", "../env.tfvars"]
+        - run: tfsec ./  --tfvars-file  ../env.tfvars || true

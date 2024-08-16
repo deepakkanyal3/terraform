@@ -1,0 +1,61 @@
+# locals {
+#   #********************************************************************************
+#   # Ingress
+#   #********************************************************************************
+#   # CIDRs
+#   ingress_nlb_sg_cidr = [
+#     {
+#       # allowed 80 - everyone
+#       name        = "http"
+#       description = "allows http from all"
+#       from_port   = 80
+#       to_port     = 80
+#       protocol    = "tcp"
+#       cidr_block  = "0.0.0.0/0"
+#       type        = "ingress"
+#     },
+#   ]
+
+#   #********************************************************************************
+#   # Egress
+#   #********************************************************************************
+#   # CIDRs
+#   egress_nlb_sg_cidr = [
+#     {
+#       # allows https
+#       name        = "allow_all"
+#       description = "allows all traffic to everywhere"
+#       from_port   = 0
+#       to_port     = 0
+#       protocol    = "-1"
+#       type        = "egress"
+#       cidr_block  = "0.0.0.0/0"
+#     }
+#   ]
+# }
+
+# #********************************************************************************
+# module "nlb_sg" {
+#   source            = "../../../../../../modules/security_group"
+#   name = "nlb-03"
+#   vpc_id = data.aws_vpc.current_vpc.id
+#   environment               = var.environment
+#   account = var.account
+#   tags              = local.common_tags
+#   ingress_cidr      = local.ingress_nlb_sg_cidr
+#   egress_cidr       = local.egress_nlb_sg_cidr
+
+
+# }
+
+# # module "pvt_alb_sg" {
+# #   source            = "../../../../../../modules/security_group"
+# #   name = "pvt_alb"
+# #   vpc_id = data.aws_vpc.current_vpc.id
+# #   environment               = var.environment
+# #   account = var.account
+# #   tags              = local.common_tags
+# #   ingress_cidr      = local.ingress_alb_sg_cidr
+# #   egress_cidr       = local.egress_alb_sg_cidr
+
+# # }

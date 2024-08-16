@@ -1,0 +1,3 @@
+locals {
+  configmap_roles = var.config_map_roles
+}

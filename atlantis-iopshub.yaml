@@ -1,0 +1,48 @@
+version: 3
+projects:
+  - dir: ./clients/iopshub/accounts/central/prod/common
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/eks
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/eks-addons
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/vpn
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/nexus
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/nexus-repo
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/aws-waf
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/aws-ses
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/loki
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/tempo
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/stg/common
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/stg/firewall
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/stg/ec2
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/fileupload
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/smartcloud
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/vault
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/prod/pritunl
+    workflow: clients_iopshub_accounts_central
+  - dir: ./clients/iopshub/accounts/central/stg/organization-unit
+  - dir: ./clients/iopshub/accounts/central/stg/iam-identy-center
+    workflow: clients_iopshub_accounts_central
+
+workflows:
+  clients_iopshub_accounts_central:
+    plan:
+      steps:
+        - init
+        - plan:
+            extra_args: ["-var-file", "../env.tfvars"]
+        - run: tfsec ./  --tfvars-file  ../env.tfvars
